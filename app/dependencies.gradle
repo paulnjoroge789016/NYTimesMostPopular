@@ -1,0 +1,61 @@
+ext {
+
+
+    def kotlin_version = "1.6.10"
+
+    def coreKtxVersion = '1.7.0'
+    def appcompatVersion = '1.4.1'
+    def materialComponentsVersion = '1.5.0'
+    def constraintLayoutVersion = '2.1.3'
+    def recyclerViewVersion = '1.1.0'
+    def junitVersion = '4.13.2'
+    def junitAndroidVersion = '1.1.2'
+    def espressoVersion = '3.4.0'
+
+    def hiltVersion = '2.28-alpha'
+    def retrofitVersion = '2.9.0'
+    def retrofitCoroutineVerion = '0.9.2'
+    def okHttpVersion = '4.9.0'
+    def hiltViewModelVersion = '1.0.0-alpha02'
+    def viewModelVersion = '2.2.0'
+    def pagingVersion = '3.1.0'
+    def navigationFragmentVersion = '2.3.2'
+    def lifecycleExtensionsVersion = '2.2.0'
+
+
+    generalDependencies = [
+            kotlin : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            coreKtx : "androidx.core:core-ktx:$coreKtxVersion",
+            appcompat: "androidx.appcompat:appcompat:$appcompatVersion",
+            materialComponents : "com.google.android.material:material:$materialComponentsVersion",
+            constraintLayout : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            recyclerView : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
+    ]
+
+
+    testDependencies = [
+            junit : "junit:junit:$junitVersion",
+            junitAndroid : "androidx.test.ext:junit:$junitAndroidVersion",
+            espresso : "androidx.test.espresso:espresso-core:$espressoVersion",
+    ]
+
+    annotations = [
+            hilt :  "com.google.dagger:hilt-android-compiler:$hiltVersion",
+            hiltViewModel :  "androidx.hilt:hilt-compiler:$hiltViewModelVersion"
+
+    ]
+
+    thirdPartyDependencies  = [
+            hilt : "com.google.dagger:hilt-android:$hiltVersion",
+            hiltViewModel : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltViewModelVersion",
+            viewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion",
+            paging : "androidx.paging:paging-runtime:$pagingVersion",
+            navigationFragment : "androidx.navigation:navigation-fragment-ktx:$navigationFragmentVersion",
+            lifecycleExtensions : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion",
+            retrofit : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitCoroutinesAdapter : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitCoroutineVerion",
+            okHttpInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+            okHttp : "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    ]
+}
