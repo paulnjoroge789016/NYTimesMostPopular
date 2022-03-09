@@ -30,7 +30,7 @@ class ArticlesViewModel @ViewModelInject constructor(
         getAllPosts()
     }
 
-    private fun getAllPosts() {
+    fun getAllPosts() {
 
         viewModelScope.launch {
             val articles = ArrayList<Article>()

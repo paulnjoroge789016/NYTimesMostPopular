@@ -7,4 +7,9 @@ import com.paul.nytimesmostpopular.databinding.ListItemBinding
 
 class ArticleViewHolder (binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
     val binding = DataBindingUtil.bind<ListItemBinding>(binding.root)
+
+}
+
+interface ArticleViewOnClickListener {
+    fun onItemClick(position: Int)
 }

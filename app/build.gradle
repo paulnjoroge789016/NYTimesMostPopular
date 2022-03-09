@@ -1,3 +1,4 @@
+
 plugins {
 
     id 'com.android.application'
@@ -8,6 +9,7 @@ plugins {
     id 'com.google.secrets_gradle_plugin' version '0.4'
 
 }
+
 
 android {
     compileSdk 31
@@ -44,6 +46,7 @@ android {
 
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.5.0'
 
 //    implementation project(':domain')
 //    implementation project(':data-remote')

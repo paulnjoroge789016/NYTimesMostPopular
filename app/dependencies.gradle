@@ -1,7 +1,7 @@
 ext {
 
 
-    def kotlin_version = "1.4.10"
+    def kotlin_version = "1.5.21"
 
     def coreKtxVersion = '1.7.0'
     def appcompatVersion = '1.4.1'

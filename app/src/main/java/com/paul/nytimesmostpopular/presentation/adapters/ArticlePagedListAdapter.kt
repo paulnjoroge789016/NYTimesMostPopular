@@ -15,7 +15,8 @@ import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 
 
-class ArticlePagedListAdapter  (private val articlesViewModel: ArticlesViewModel,private val articles: ArrayList<Article>):
+class ArticlePagedListAdapter  (private val articles: ArrayList<Article>,
+                                private val articleViewOnClickListener : ArticleViewOnClickListener):
     RecyclerView.Adapter<ArticleViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         val binding =
@@ -32,6 +33,10 @@ class ArticlePagedListAdapter  (private val articlesViewModel: ArticlesViewModel
         holder.binding!!.title.text = article.title
         holder.binding.createdBy.text = article.createdBy
         holder.binding.dateRow.date.text = article.publishedDate
+
+        holder.binding.iconRight.setOnClickListener {
+            articleViewOnClickListener.onItemClick(position)
+        }
         Picasso.get()
             .load(article.smallThumbnail)
             .transform(CircleTransform())

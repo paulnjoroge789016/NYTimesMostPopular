@@ -9,5 +9,19 @@
         android:id="@+id/newsListFragment"
         android:name="com.paul.nytimesmostpopular.PopularArticlesListFragment"
         android:label="fragment_news_list"
-        tools:layout="@layout/fragment_news_list" />
+        tools:layout="@layout/fragment_news_list" >
+        <action
+            android:id="@+id/action_newsListFragment_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
+        <argument
+            android:name="article"
+            app:argType="com.paul.nytimesmostpopular.domain.data.entities.Article"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleDetailsFragment"
+        android:name="com.paul.nytimesmostpopular.ArticleDetailsFragment"
+        android:label="fragment_article_details"
+        tools:layout="@layout/fragment_article_details" />
 </navigation>

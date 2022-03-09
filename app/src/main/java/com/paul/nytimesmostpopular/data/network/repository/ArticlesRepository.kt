@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.forEach
 import retrofit2.HttpException
 import java.io.IOException
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 class ArticlesRepository @Inject constructor(
@@ -32,7 +33,10 @@ class ArticlesRepository @Inject constructor(
             val localizedMessage = exception.localizedMessage
             exception.printStackTrace()
             emit(NetworkBoundResource.Failed(localizedMessage))
-
+        } catch (exception: UnknownHostException){
+            val localizedMessage = exception.localizedMessage
+            exception.printStackTrace()
+            emit(NetworkBoundResource.Failed(localizedMessage))
         }
     }
 }
