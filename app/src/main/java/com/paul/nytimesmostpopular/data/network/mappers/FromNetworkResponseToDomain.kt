@@ -10,6 +10,7 @@ fun Article.toDomainArticle() = com.paul.nytimesmostpopular.domain.data.entities
     smallThumbnail = this.media[0].mediaMetadata[0].url,
     mediumThumbnail = this.media[0].mediaMetadata[1].url,
     largeThumbnail = this.media[0].mediaMetadata[2].url,
-    publishedDate = this.publishedDate
+    publishedDate = this.publishedDate,
+    createdBy = this.byline
 
 )

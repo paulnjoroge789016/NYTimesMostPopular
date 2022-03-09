@@ -12,6 +12,6 @@ data class Article (
     val smallThumbnail: String,
     val mediumThumbnail: String,
     val largeThumbnail: String,
-
-    val publishedDate: String
+    val publishedDate: String,
+    val createdBy: String
 ): Parcelable

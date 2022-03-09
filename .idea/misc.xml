@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Tekkiller/AndroidStudioProjects/portofolio/NYTimesMostPopular/app/src/main/res/drawable/arrow_right.xml" value="0.1715" />
+        <entry key="..\:/Users/Tekkiller/AndroidStudioProjects/portofolio/NYTimesMostPopular/app/src/main/res/drawable/calendar.xml" value="0.1715" />
+        <entry key="..\:/Users/Tekkiller/AndroidStudioProjects/portofolio/NYTimesMostPopular/app/src/main/res/drawable/circle_image.xml" value="0.1715" />
         <entry key="..\:/Users/Tekkiller/AndroidStudioProjects/portofolio/NYTimesMostPopular/app/src/main/res/layout/activity_main.xml" value="0.2717948717948718" />
+        <entry key="..\:/Users/Tekkiller/AndroidStudioProjects/portofolio/NYTimesMostPopular/app/src/main/res/layout/date_row.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/Tekkiller/AndroidStudioProjects/portofolio/NYTimesMostPopular/app/src/main/res/layout/fragment_news_list.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/Tekkiller/AndroidStudioProjects/portofolio/NYTimesMostPopular/app/src/main/res/layout/list_item.xml" value="0.27239583333333334" />
       </map>
     </option>
   </component>

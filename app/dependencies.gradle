@@ -1,7 +1,7 @@
 ext {
 
 
-    def kotlin_version = "1.6.10"
+    def kotlin_version = "1.4.10"
 
     def coreKtxVersion = '1.7.0'
     def appcompatVersion = '1.4.1'
@@ -21,6 +21,9 @@ ext {
     def pagingVersion = '3.1.0'
     def navigationFragmentVersion = '2.3.2'
     def lifecycleExtensionsVersion = '2.2.0'
+
+    def picassoVersion = '2.71828'
+
 
 
     generalDependencies = [
@@ -56,6 +59,7 @@ ext {
             retrofitConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
             retrofitCoroutinesAdapter : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitCoroutineVerion",
             okHttpInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
-            okHttp : "com.squareup.okhttp3:okhttp:$okHttpVersion"
+            okHttp : "com.squareup.okhttp3:okhttp:$okHttpVersion",
+            picasso: "com.squareup.picasso:picasso:$picassoVersion"
     ]
 }
