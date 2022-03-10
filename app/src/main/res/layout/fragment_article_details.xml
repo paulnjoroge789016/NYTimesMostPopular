@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ArticleDetailsFragment">
+    tools:context=".ArticleDetailsFragment"
+    >
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -17,12 +18,18 @@
             android:layout_height="350dp"
             android:fitsSystemWindows="true">
 
-            <include layout="@layout/collapsing_toolbar" />
+            <include
+                android:id="@+id/collapsing_toolbar"
+                layout="@layout/collapsing_toolbar" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
 
-        <include layout="@layout/article_details_content" />
+        <include
+            android:id="@+id/article_details_content"
+            layout="@layout/article_details_content" />
+
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>

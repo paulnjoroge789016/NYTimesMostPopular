@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="mainViewModel"
+            name="articleViewModel"
             type="com.paul.nytimesmostpopular.presentation.viewmodel.ArticlesViewModel" />
     </data>
 
@@ -45,7 +45,7 @@ different"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_error_btn"
-                android:onClick="@{() ->mainViewModel.getAllPosts()}"
+                android:onClick="@{() -> articleViewModel.getAllPosts()}"
                 android:gravity="center">
 
                 <TextView

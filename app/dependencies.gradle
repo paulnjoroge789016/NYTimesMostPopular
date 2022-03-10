@@ -1,7 +1,7 @@
 ext {
 
 
-    def kotlin_version = "1.5.21"
+    def kotlin_version = "1.4.10"
 
     def coreKtxVersion = '1.7.0'
     def appcompatVersion = '1.4.1'
@@ -54,6 +54,8 @@ ext {
             viewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion",
             paging : "androidx.paging:paging-runtime:$pagingVersion",
             navigationFragment : "androidx.navigation:navigation-fragment-ktx:$navigationFragmentVersion",
+            navigationUi: "androidx.navigation:navigation-ui:$navigationFragmentVersion",
+
             lifecycleExtensions : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion",
             retrofit : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retrofitConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",

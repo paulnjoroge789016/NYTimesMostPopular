@@ -41,6 +41,9 @@ class PopularArticlesListFragment : Fragment(), ArticleViewOnClickListener {
 
 
 
+        btnRetry.setOnClickListener {
+            articlesViewModel.getAllPosts()
+        }
 
 
         articlesViewModel.articles.observe(viewLifecycleOwner) {
@@ -70,6 +73,7 @@ class PopularArticlesListFragment : Fragment(), ArticleViewOnClickListener {
             if (!it.isNullOrEmpty()) {
                 layoutError.visibility = View.VISIBLE
                 progressBar.visibility = View.GONE
+                tvError.text = it
             } else {
                 layoutError.visibility = View.GONE
                 progressBar.visibility = View.GONE
@@ -85,7 +89,11 @@ class PopularArticlesListFragment : Fragment(), ArticleViewOnClickListener {
         bundle = Bundle()
         bundle.putParcelable("article", article)
 
-        findNavController().navigate(R.id.action_newsListFragment_to_articleDetailsFragment, bundle)
+        val action = PopularArticlesListFragmentDirections.actionNewsListFragmentToArticleDetailsFragment(
+            article
+        )
+
+        findNavController().navigate(action)
 
     }
 

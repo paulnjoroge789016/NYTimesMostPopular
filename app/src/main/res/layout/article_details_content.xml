@@ -5,15 +5,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_margin="10dp"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="vertical">
+
+
         <RelativeLayout
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp">
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent">
 
             <TextView
                 android:id="@+id/title_des"
@@ -77,8 +84,29 @@
                 android:textSize="16sp" />
 
 
+
+
+
         </RelativeLayout>
 
+        <LinearLayout
+
+            android:id="@+id/btn_read_more"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_error_btn"
+
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_retry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Read More >"
+                android:textColor="#fff" />
+        </LinearLayout>
+
+    </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 

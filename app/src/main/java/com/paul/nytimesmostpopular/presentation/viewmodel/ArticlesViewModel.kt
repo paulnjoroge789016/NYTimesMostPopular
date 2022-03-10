@@ -41,15 +41,20 @@ class ArticlesViewModel @ViewModelInject constructor(
                     is NetworkBoundResource.Success -> {
 
                         _articles.postValue(results.data)
+                        _loadingState.postValue(false)
+                        _errorMessage.postValue("")
                     }
 
                     is NetworkBoundResource.Failed -> {
 
-
+                        _loadingState.postValue(false)
+                        _errorMessage.postValue(results.message)
                     }
 
                     is NetworkBoundResource.Loading -> {
 
+                        _loadingState.postValue(true)
+                        _errorMessage.postValue("")
                     }
                 }
             }
