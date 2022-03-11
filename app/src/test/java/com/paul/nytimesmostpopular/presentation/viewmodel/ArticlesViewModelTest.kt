@@ -43,7 +43,7 @@ class ArticlesViewModelTest{
 
 
     @Test
-    fun getArticlesReturnsError() =   testCoroutineDispatcher.runBlockingTest{
+    fun getArticlesReturnsError()  {
 
         fakeRepository.setShouldReturnError(true)
         articlesViewModel.getAllPosts()

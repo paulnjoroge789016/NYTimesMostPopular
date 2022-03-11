@@ -35,7 +35,9 @@ class PopularArticlesListFragmentTest{
     fun testNavigationToArticleDetailsFragment(){
 
 
-        launchFragmentInHiltContainer<PopularArticlesListFragment> {  }
+        launchFragmentInHiltContainer<PopularArticlesListFragment> {
+
+        }
 
     }
 
