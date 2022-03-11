@@ -27,11 +27,13 @@ class ArticlesRepositoryTest{
     }
 
     @Test
-    fun  `Request to get data from api succeeds`() =  runBlockingTest{
+    fun  `request to get data from api succeeds`() =  runBlockingTest{
 
         fakeRepository.getAll().test {
 
-            val articles = awaitItem()
+            val result = awaitItem() as NetworkBoundResource.Success
+
+            val articles = result.data
 
             val article = Article(
                 id = 1,
@@ -46,7 +48,7 @@ class ArticlesRepositoryTest{
             )
 
 
-            assertThat(articles.javaClass.toString()).isEqualTo("class com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource\$Success")
+            assertThat(articles).contains(article)
             cancelAndIgnoreRemainingEvents()
         }
 
@@ -70,21 +72,18 @@ class ArticlesRepositoryTest{
 
 
     @Test
-    fun  `Request to get data from api should fail`() =  runBlockingTest{
+    fun  `request to get data from api should fail`() =  runBlockingTest{
 
         fakeRepository.setShouldReturnError(true)
         fakeRepository.getAll().test {
 
-            val articles = awaitItem()
+            val result = awaitItem() as NetworkBoundResource.Failed
 
-
-            assertThat(articles.javaClass.toString()).isEqualTo("class com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource\$Failed")
+            assertThat(result.message).isEqualTo("Error")
             cancelAndIgnoreRemainingEvents()
         }
 
     }
-
-
 
 
 }
