@@ -3,11 +3,11 @@ package com.paul.nytimesmostpopular.data.network.repository
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
-import com.paul.nytimesmostpopular.FakeRepository
+import com.paul.nytimesmostpopular.FakeArticlesRepository
 import com.paul.nytimesmostpopular.domain.data.entities.Article
 import com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
@@ -18,18 +18,21 @@ class ArticlesRepositoryTest{
     @get:Rule
     var instantTaskExecutorRule: InstantTaskExecutorRule = InstantTaskExecutorRule()
 
-    lateinit var fakeRepository: FakeRepository
+
+
+    lateinit var fakeArticlesRepository: FakeArticlesRepository
+
 
 
     @Before
     fun setUp(){
-        fakeRepository = FakeRepository()
+        fakeArticlesRepository = FakeArticlesRepository()
     }
 
     @Test
-    fun  `request to get data from api succeeds`() =  runBlockingTest{
+    fun  `request to get data from api succeeds`() = runBlockingTest{
 
-        fakeRepository.getAll().test {
+        fakeArticlesRepository.getAll().test {
 
             val result = awaitItem() as NetworkBoundResource.Success
 
@@ -57,14 +60,14 @@ class ArticlesRepositoryTest{
     @Test
     fun  `request to get data from api should return loading`() =  runBlockingTest{
 
-        fakeRepository.setShouldReturnLoading(true)
+        fakeArticlesRepository.setShouldReturnLoading(true)
 
-        fakeRepository.getAll().test {
+        fakeArticlesRepository.getAll().test {
 
             val articles = awaitItem()
 
 
-            assertThat(articles.javaClass.toString()).isEqualTo("class com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource\$Loading")
+            assert(articles is NetworkBoundResource.Loading)
             cancelAndIgnoreRemainingEvents()
         }
 
@@ -74,11 +77,10 @@ class ArticlesRepositoryTest{
     @Test
     fun  `request to get data from api should fail`() =  runBlockingTest{
 
-        fakeRepository.setShouldReturnError(true)
-        fakeRepository.getAll().test {
+        fakeArticlesRepository.setShouldReturnError(true)
+        fakeArticlesRepository.getAll().test {
 
             val result = awaitItem() as NetworkBoundResource.Failed
-
             assertThat(result.message).isEqualTo("Error")
             cancelAndIgnoreRemainingEvents()
         }

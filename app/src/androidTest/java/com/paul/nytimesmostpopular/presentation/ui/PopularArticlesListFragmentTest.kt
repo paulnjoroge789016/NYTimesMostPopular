@@ -8,30 +8,35 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.filters.MediumTest
 import com.paul.nytimesmostpopular.R
+import com.paul.nytimesmostpopular.launchFragmentInHiltContainer
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-
-@RunWith(AndroidJUnit4::class)
+@MediumTest
+@HiltAndroidTest
+@ExperimentalCoroutinesApi
 class PopularArticlesListFragmentTest{
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
 
+    @Before
+    fun setUp(){
+        hiltRule.inject()
+    }
 
     @Test
     fun testNavigationToArticleDetailsFragment(){
 
-        val navController = TestNavHostController(
-            ApplicationProvider.getApplicationContext()
-        )
 
+        launchFragmentInHiltContainer<PopularArticlesListFragment> {  }
 
-        val popularArticlesListFragmentScenario = launchFragmentInContainer<PopularArticlesListFragment>()
-
-        onView(withId(R.id.rv_articles)).check(matches(isDisplayed()))
-
-//        popularArticlesListFragmentScenario.onFragment{
-//            navController.setGraph(R.navigation.nav_graph)
-//        }
     }
 
 }

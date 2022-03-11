@@ -6,12 +6,15 @@ import androidx.lifecycle.*
 import com.paul.nytimesmostpopular.domain.data.entities.Article
 import com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource
 import com.paul.nytimesmostpopular.domain.usecases.GetAllArticlesUseCase
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 
 class ArticlesViewModel @ViewModelInject constructor(
     private val articlesUseCase: GetAllArticlesUseCase,
-    @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _articles: MutableLiveData<ArrayList<Article>> = MutableLiveData()
@@ -30,35 +33,49 @@ class ArticlesViewModel @ViewModelInject constructor(
         getAllPosts()
     }
 
-    fun getAllPosts() {
+    fun getAllPosts() = viewModelScope.launch {
+        articlesUseCase.getAllArticles().collect { results ->
 
-        viewModelScope.launch {
-            val articles = ArrayList<Article>()
-            articlesUseCase.getAllArticles().collect { results ->
+            when (results) {
 
-                when (results) {
+                is NetworkBoundResource.Success -> {
 
-                    is NetworkBoundResource.Success -> {
+                    _articles.postValue(results.data)
+                    _loadingState.postValue(false)
+                    _errorMessage.postValue("")
+                }
 
-                        _articles.postValue(results.data)
-                        _loadingState.postValue(false)
-                        _errorMessage.postValue("")
-                    }
+                is NetworkBoundResource.Failed -> {
 
-                    is NetworkBoundResource.Failed -> {
+                    _loadingState.postValue(false)
+                    _errorMessage.postValue(results.message)
+                }
 
-                        _loadingState.postValue(false)
-                        _errorMessage.postValue(results.message)
-                    }
+                is NetworkBoundResource.Loading -> {
 
-                    is NetworkBoundResource.Loading -> {
-
-                        _loadingState.postValue(true)
-                        _errorMessage.postValue("")
-                    }
+                    _loadingState.postValue(true)
+                    _errorMessage.postValue("")
                 }
             }
         }
+
+    }
+
+
+    fun dummyTest() = viewModelScope.launch {
+        val data = returnError().asLiveData()
+
+
+        val value = data.value as NetworkBoundResource.Success
+
+        _errorMessage.postValue(value.data)
+
+
+    }
+
+
+    private suspend fun returnError(): Flow<NetworkBoundResource<String>> = flow<NetworkBoundResource<String>> {
+        emit(NetworkBoundResource.Success("Error"))
     }
 
 

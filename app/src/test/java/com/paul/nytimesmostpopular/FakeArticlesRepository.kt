@@ -6,7 +6,7 @@ import com.paul.nytimesmostpopular.domain.repository.IArticleRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class FakeRepository : IArticleRepository {
+class FakeArticlesRepository : IArticleRepository {
 
 
     private var shouldReturnError = false
