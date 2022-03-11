@@ -1,4 +1,4 @@
-package com.paul.nytimesmostpopular
+package com.paul.nytimesmostpopular.presentation.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,12 +12,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.paul.nytimesmostpopular.R
 import com.paul.nytimesmostpopular.domain.data.entities.Article
 import com.paul.nytimesmostpopular.presentation.adapters.ArticlePagedListAdapter
 import com.paul.nytimesmostpopular.presentation.adapters.ArticleViewOnClickListener
 import com.paul.nytimesmostpopular.presentation.viewmodel.ArticlesViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import org.w3c.dom.Text
 
 
 @AndroidEntryPoint
@@ -89,9 +89,10 @@ class PopularArticlesListFragment : Fragment(), ArticleViewOnClickListener {
         bundle = Bundle()
         bundle.putParcelable("article", article)
 
-        val action = PopularArticlesListFragmentDirections.actionNewsListFragmentToArticleDetailsFragment(
-            article
-        )
+        val action =
+           PopularArticlesListFragmentDirections.actionNewsListFragmentToArticleDetailsFragment(
+                article
+            )
 
         findNavController().navigate(action)
 

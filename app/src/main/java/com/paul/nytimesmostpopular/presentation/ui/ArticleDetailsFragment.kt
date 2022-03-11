@@ -1,6 +1,5 @@
-package com.paul.nytimesmostpopular
+package com.paul.nytimesmostpopular.presentation.ui
 
-import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -8,14 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.navigation.fragment.navArgs
-import com.paul.nytimesmostpopular.databinding.ArticleDetailsContentBinding
-import com.paul.nytimesmostpopular.databinding.CollapsingToolbarBinding
+import com.paul.nytimesmostpopular.R
 import com.paul.nytimesmostpopular.databinding.FragmentArticleDetailsBinding
-import com.paul.nytimesmostpopular.domain.data.entities.Article
 import com.squareup.picasso.Picasso
 
 @Suppress("DEPRECATION")
