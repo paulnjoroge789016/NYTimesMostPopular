@@ -7,7 +7,33 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class FakeRepository : IArticleRepository {
-    override suspend fun getAll(): Flow<NetworkBoundResource<ArrayList<Article>>>  = flow {
+
+
+    private var shouldReturnError = false
+    private var shouldReturnLoading = false
+
+
+    fun setShouldReturnError(value: Boolean) {
+        shouldReturnError = value
+    }
+
+    fun setShouldReturnLoading(value: Boolean) {
+        shouldReturnLoading = value
+    }
+
+
+    override suspend fun getAll(): Flow<NetworkBoundResource<ArrayList<Article>>> = flow {
+
+        if (shouldReturnLoading) {
+            emit(NetworkBoundResource.Loading)
+            return@flow
+        }
+
+        if (shouldReturnError) {
+            emit(NetworkBoundResource.Failed("Error"))
+            return@flow
+        }
+
 
         val article = Article(
             id = 1,

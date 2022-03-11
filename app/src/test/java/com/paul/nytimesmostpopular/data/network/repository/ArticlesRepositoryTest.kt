@@ -13,7 +13,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-
+@ExperimentalCoroutinesApi
 class ArticlesRepositoryTest{
     @get:Rule
     var instantTaskExecutorRule: InstantTaskExecutorRule = InstantTaskExecutorRule()
@@ -26,7 +26,6 @@ class ArticlesRepositoryTest{
         fakeRepository = FakeRepository()
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun  `Request to get data from api succeeds`() =  runBlockingTest{
 
@@ -52,4 +51,40 @@ class ArticlesRepositoryTest{
         }
 
     }
+
+    @Test
+    fun  `request to get data from api should return loading`() =  runBlockingTest{
+
+        fakeRepository.setShouldReturnLoading(true)
+
+        fakeRepository.getAll().test {
+
+            val articles = awaitItem()
+
+
+            assertThat(articles.javaClass.toString()).isEqualTo("class com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource\$Loading")
+            cancelAndIgnoreRemainingEvents()
+        }
+
+    }
+
+
+    @Test
+    fun  `Request to get data from api should fail`() =  runBlockingTest{
+
+        fakeRepository.setShouldReturnError(true)
+        fakeRepository.getAll().test {
+
+            val articles = awaitItem()
+
+
+            assertThat(articles.javaClass.toString()).isEqualTo("class com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource\$Failed")
+            cancelAndIgnoreRemainingEvents()
+        }
+
+    }
+
+
+
+
 }

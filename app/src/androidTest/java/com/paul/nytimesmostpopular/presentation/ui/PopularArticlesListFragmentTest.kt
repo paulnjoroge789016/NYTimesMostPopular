@@ -1,8 +1,6 @@
 package com.paul.nytimesmostpopular.presentation.ui
 
-import androidx.core.os.bundleOf
 import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.navigation.Navigation
 import androidx.navigation.testing.TestNavHostController
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
@@ -11,8 +9,6 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.paul.nytimesmostpopular.R
-import com.paul.nytimesmostpopular.domain.data.entities.Article
-import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 
