@@ -8,7 +8,6 @@ import com.paul.nytimesmostpopular.data.network.api.NYTimesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,10 +15,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+
+
+
 @Module
 @InstallIn(SingletonComponent::class)
-object ApiServiceModule {
-
+object NetworkModule {
 
     @Provides
     @Singleton
@@ -42,7 +43,7 @@ object ApiServiceModule {
 
     @Provides
     @Singleton
-    fun provideNYTimesApiService(retrofit: Retrofit.Builder): NYTimesApi{
+    fun provideNYTimesApiService(retrofit: Retrofit.Builder): NYTimesApi {
         return retrofit
             .build()
             .create(NYTimesApi::class.java)
@@ -58,7 +59,7 @@ object ApiServiceModule {
 
     @Provides
     @Singleton
-    fun provideHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient{
+    fun provideHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return if(BuildConfig.DEBUG){
             OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
@@ -68,5 +69,4 @@ object ApiServiceModule {
                 .build()
         }
     }
-
 }

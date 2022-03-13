@@ -46,26 +46,21 @@ class PopularArticlesListFragment : Fragment(), ArticleViewOnClickListener {
         }
 
 
+
         articlesViewModel.articles.observe(viewLifecycleOwner) {
 
-            articles = ArrayList()
-            articles.addAll(it)
-            val adapter = ArticlePagedListAdapter(it, this@PopularArticlesListFragment)
-            rvArticles.layoutManager = LinearLayoutManager(
-                requireContext(),
-                LinearLayoutManager.VERTICAL, false
-            )
-
-            rvArticles.adapter = adapter
+            setUpRecyclerView(it, rvArticles)
         }
 
         articlesViewModel.loadingState.observe(viewLifecycleOwner) {
             if (it) {
                 progressBar.visibility = View.VISIBLE
                 layoutError.visibility = View.GONE
+                rvArticles.visibility = View.GONE
             } else {
                 progressBar.visibility = View.GONE
                 layoutError.visibility = View.GONE
+
             }
         }
 
@@ -81,6 +76,23 @@ class PopularArticlesListFragment : Fragment(), ArticleViewOnClickListener {
         }
 
         return v
+    }
+
+    private fun setUpRecyclerView(
+        it: ArrayList<Article>,
+        rvArticles: RecyclerView
+    ) {
+        articles = ArrayList()
+        articles.addAll(it)
+        val adapter = ArticlePagedListAdapter(it, this@PopularArticlesListFragment)
+        rvArticles.layoutManager = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.VERTICAL, false
+        )
+
+        rvArticles.adapter = adapter
+
+        rvArticles.visibility = View.VISIBLE
     }
 
     override fun onItemClick(position: Int) {

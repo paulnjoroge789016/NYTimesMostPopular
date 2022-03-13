@@ -1,20 +1,23 @@
 package com.paul.nytimesmostpopular.presentation.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.google.common.truth.Truth
 import com.google.common.truth.Truth.assertThat
+import com.paul.nytimesmostpopular.ArticlesTestData
 import com.paul.nytimesmostpopular.FakeArticlesRepository
-import com.paul.nytimesmostpopular.MainCoroutineRule
 import com.paul.nytimesmostpopular.TestCoroutineRule
+import com.paul.nytimesmostpopular.data.network.repository.ArticlesRepository
+import com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource
 import com.paul.nytimesmostpopular.domain.usecases.GetAllArticlesUseCase
 import com.paul.nytimesmostpopular.getOrAwaitValueTest
+import io.mockk.coEvery
+import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runBlockingTest
-
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 
 @ExperimentalCoroutinesApi
@@ -30,36 +33,77 @@ class ArticlesViewModelTest{
 
 
     private lateinit var articlesViewModel: ArticlesViewModel
-    lateinit var getAllArticlesUseCase: GetAllArticlesUseCase
-    lateinit var fakeRepository: FakeArticlesRepository
+    private var getAllArticlesUseCase: GetAllArticlesUseCase = mock(GetAllArticlesUseCase::class.java)
+
+
     @Before
     fun setUp(){
 
-        fakeRepository =  FakeArticlesRepository()
-        getAllArticlesUseCase = GetAllArticlesUseCase(fakeRepository)
-        articlesViewModel = ArticlesViewModel(getAllArticlesUseCase)
     }
 
 
 
     @Test
-    fun getArticlesReturnsError()  {
+    fun `get Articles should Return Error`()  = runBlockingTest{
 
-        fakeRepository.setShouldReturnError(true)
+        `when`(getAllArticlesUseCase.getAllArticles()).thenReturn(
+            flow {
+                emit(NetworkBoundResource.Failed("Error"))
+            }
+        )
+
+
+        articlesViewModel = ArticlesViewModel(getAllArticlesUseCase)
         articlesViewModel.getAllPosts()
 
-        val errorMessage = articlesViewModel.errorMessage.getOrAwaitValueTest()
+        val error = articlesViewModel.errorMessage.getOrAwaitValueTest()
+        assertThat(error).isEqualTo("Error")
 
-        assertThat(errorMessage).matches("Error")
+
     }
 
 
     @Test
-    fun `dummy test in viewmodel`() = testCoroutineDispatcher.runBlockingTest{
+    fun `get articles should succeed after articles are returned`()  = runBlockingTest{
 
-        articlesViewModel.dummyTest()
-        val error  =  articlesViewModel.errorMessage.getOrAwaitValueTest()
 
-        assertThat(error).isEqualTo("Error")
+        `when`(getAllArticlesUseCase.getAllArticles()).thenReturn(
+            flow {
+                emit(NetworkBoundResource.Success(ArticlesTestData.articels))
+            }
+        )
+
+
+        articlesViewModel = ArticlesViewModel(getAllArticlesUseCase)
+        articlesViewModel.getAllPosts()
+
+        val articles = articlesViewModel.articles.getOrAwaitValueTest()
+
+        assertThat(articles).contains(ArticlesTestData.articels[0])
+
+
     }
+
+    @Test
+    fun `get articles should return loading`()  = runBlockingTest{
+
+        `when`(getAllArticlesUseCase.getAllArticles()).thenReturn(
+            flow {
+                emit(NetworkBoundResource.Loading)
+            }
+        )
+
+
+        articlesViewModel = ArticlesViewModel(getAllArticlesUseCase)
+        articlesViewModel.getAllPosts()
+
+        val isLoading = articlesViewModel.loadingState.getOrAwaitValueTest()
+
+        assertThat(isLoading).isTrue()
+
+
+    }
+
+
+
 }

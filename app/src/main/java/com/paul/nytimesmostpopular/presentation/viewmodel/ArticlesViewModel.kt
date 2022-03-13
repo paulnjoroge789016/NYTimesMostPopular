@@ -1,19 +1,19 @@
 package com.paul.nytimesmostpopular.presentation.viewmodel
 
-import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.paul.nytimesmostpopular.domain.data.entities.Article
 import com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource
 import com.paul.nytimesmostpopular.domain.usecases.GetAllArticlesUseCase
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ArticlesViewModel @ViewModelInject constructor(
+
+@HiltViewModel
+class ArticlesViewModel @Inject constructor(
     private val articlesUseCase: GetAllArticlesUseCase,
 ) : ViewModel() {
 
@@ -26,7 +26,8 @@ class ArticlesViewModel @ViewModelInject constructor(
     private val _errorMessage: MutableLiveData<String> = MutableLiveData()
     val errorMessage: LiveData<String> get() = _errorMessage
 
-    val rawResults: MutableLiveData<NetworkBoundResource<ArrayList<Article>>> = MutableLiveData()
+
+    val rawresult:  Flow<NetworkBoundResource<ArrayList<Article>>> = flow {  }
 
     init {
         _loadingState.value = true
@@ -76,6 +77,10 @@ class ArticlesViewModel @ViewModelInject constructor(
 
     private suspend fun returnError(): Flow<NetworkBoundResource<String>> = flow<NetworkBoundResource<String>> {
         emit(NetworkBoundResource.Success("Error"))
+    }
+
+    fun postArticles(articles: java.util.ArrayList<Article>) {
+        _articles.postValue(articles)
     }
 
 

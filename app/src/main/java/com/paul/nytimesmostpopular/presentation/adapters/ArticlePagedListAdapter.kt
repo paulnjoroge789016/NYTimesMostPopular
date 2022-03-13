@@ -30,7 +30,7 @@ class ArticlePagedListAdapter  (private val articles: ArrayList<Article>,
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = articles[position]
-        holder.binding!!.title.text = article.title
+        holder.binding!!.tvArticleTitle.text = article.title
         holder.binding.createdBy.text = article.createdBy
         holder.binding.dateRow.date.text = article.publishedDate
 

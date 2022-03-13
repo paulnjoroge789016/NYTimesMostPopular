@@ -23,7 +23,7 @@
             />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/tv_article_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -41,7 +41,7 @@
             android:id="@+id/created_by"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
+            android:layout_below="@+id/tv_article_title"
             android:layout_marginBottom="8dp"
             android:layout_toStartOf="@+id/icon_right"
             android:layout_toLeftOf="@+id/icon_right"
