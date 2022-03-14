@@ -25,7 +25,12 @@ API_KEY="*******************"
     - [Room](https://developer.android.com/training/data-storage/room) - Provides an abstraction layer over SQLite used for offline data caching.
     - [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started)-Component that allows easier implementation of navigation from simple button clicks to more complex patterns.
 
-   
-- [Mockito](https://github.com/mockito/mockito) - For testing.
+  
 - [Retrofit](https://square.github.io/retrofit/) - To make network request.
-- 
+-  Tests
+    - [JUnit5](https://junit.org/junit5/)
+    - [Mockito](https://github.com/mockito/mockito)
+    - [Turbine](https://github.com/cashapp/turbine)
+
+- CI/CD
+    - Github Actions
