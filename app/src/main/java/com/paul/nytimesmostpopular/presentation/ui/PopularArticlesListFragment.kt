@@ -29,6 +29,8 @@ class PopularArticlesListFragment : Fragment(), ArticleViewOnClickListener {
     ): View? {
 
 
+        setHasOptionsMenu(true)
+
         val v = inflater.inflate(R.layout.fragment_news_list, container, false)
         val rvArticles = v.findViewById<RecyclerView>(R.id.rv_articles)
         val progressBar = v.findViewById<ProgressBar>(R.id.progress_bar)
@@ -106,11 +108,23 @@ class PopularArticlesListFragment : Fragment(), ArticleViewOnClickListener {
 
         findNavController().navigate(action)
 
+
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.main_menu, menu)
+//        super.onCreateOptionsMenu(menu, inflater)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.search -> {
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
 }
