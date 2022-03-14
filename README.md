@@ -47,7 +47,6 @@ I added some screenshots in the `screenshots` folder, in the root directory of t
 <th>Home screen</th>
 <th>Article Details Screen</th>
 <th>Read More</th>
-<th>On Error</th>
 </tr>
 </thead>
 <tbody>
@@ -56,10 +55,10 @@ I added some screenshots in the `screenshots` folder, in the root directory of t
 <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/home.png"><img src="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/home.png" style="max-width: 100%;" width="250"></a></td>
 <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/article_details.png"><img src="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/article_details.png" style="max-width: 100%;" width="250"></a></td>
 <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/read_more.png"><img src="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/read_more.png" style="max-width: 100%;" width="250"></a></td>
- <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/on_error.png"><img src="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/on_error.png" style="max-width: 100%;" width="250"></a></td>
 </tr>
 <tr>
-
+ <td>On Error</td>
+ <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/on_error.png"><img src="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/on_error.png" style="max-width: 100%;" width="250"></a></td>
 </tr>
 </tbody>
 </table>
