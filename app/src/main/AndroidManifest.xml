@@ -12,7 +12,7 @@
         android:name=".App"
         android:theme="@style/Theme.NYTimesMostPopular">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

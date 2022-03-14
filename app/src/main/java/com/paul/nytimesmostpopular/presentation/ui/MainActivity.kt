@@ -1,14 +1,8 @@
-package com.paul.nytimesmostpopular.presentation
+package com.paul.nytimesmostpopular.presentation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import androidx.activity.viewModels
-import com.paul.nytimesmostpopular.R
 import com.paul.nytimesmostpopular.databinding.ActivityMainBinding
-import com.paul.nytimesmostpopular.presentation.viewmodel.ArticlesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

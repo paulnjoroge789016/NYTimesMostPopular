@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.paul.nytimesmostpopular.R
 import com.paul.nytimesmostpopular.databinding.FragmentArticleDetailsBinding
-import com.paul.nytimesmostpopular.presentation.MainActivity
 import com.squareup.picasso.Picasso
 
 

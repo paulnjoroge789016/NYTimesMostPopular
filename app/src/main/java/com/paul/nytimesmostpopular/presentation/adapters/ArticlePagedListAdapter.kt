@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.paul.nytimesmostpopular.R
 import com.paul.nytimesmostpopular.databinding.ListItemBinding
 import com.paul.nytimesmostpopular.domain.data.entities.Article
-import com.paul.nytimesmostpopular.presentation.viewmodel.ArticlesViewModel
 import com.paul.nytimesmostpopular.util.CircleTransform
 import com.squareup.picasso.Callback
 import com.squareup.picasso.MemoryPolicy

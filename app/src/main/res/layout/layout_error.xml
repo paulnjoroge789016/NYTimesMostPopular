@@ -7,7 +7,7 @@
 
         <variable
             name="articleViewModel"
-            type="com.paul.nytimesmostpopular.presentation.viewmodel.ArticlesViewModel" />
+            type="com.paul.nytimesmostpopular.presentation.ui.viewmodel.ArticlesViewModel" />
     </data>
 
     <LinearLayout

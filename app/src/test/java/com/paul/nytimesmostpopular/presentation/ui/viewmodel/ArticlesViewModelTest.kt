@@ -1,4 +1,4 @@
-package com.paul.nytimesmostpopular.presentation.viewmodel
+package com.paul.nytimesmostpopular.presentation.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat

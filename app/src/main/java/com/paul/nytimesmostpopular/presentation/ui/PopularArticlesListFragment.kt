@@ -14,7 +14,7 @@ import com.paul.nytimesmostpopular.R
 import com.paul.nytimesmostpopular.domain.data.entities.Article
 import com.paul.nytimesmostpopular.presentation.adapters.ArticlePagedListAdapter
 import com.paul.nytimesmostpopular.presentation.adapters.ArticleViewOnClickListener
-import com.paul.nytimesmostpopular.presentation.viewmodel.ArticlesViewModel
+import com.paul.nytimesmostpopular.presentation.ui.viewmodel.ArticlesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

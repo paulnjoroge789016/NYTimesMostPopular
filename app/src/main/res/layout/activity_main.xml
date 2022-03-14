@@ -7,13 +7,13 @@
     <data>
         <variable
             name="mainViewModel"
-            type="com.paul.nytimesmostpopular.presentation.viewmodel.ArticlesViewModel" />
+            type="com.paul.nytimesmostpopular.presentation.ui.viewmodel.ArticlesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.MainActivity">
+    tools:context=".presentation.ui.MainActivity">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"

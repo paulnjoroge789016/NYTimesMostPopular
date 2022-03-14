@@ -1,4 +1,4 @@
-package com.paul.nytimesmostpopular.presentation.viewmodel
+package com.paul.nytimesmostpopular.presentation.ui.viewmodel
 
 import androidx.lifecycle.*
 import com.paul.nytimesmostpopular.domain.data.entities.Article
