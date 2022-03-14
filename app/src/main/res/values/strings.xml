@@ -3,4 +3,5 @@
     <string name="activity_title">NY Times Most Popular</string>
     <string name="created_by">Created By : </string>
     <string name="source">Source : </string>
+    <string name="search_title">Search</string>
 </resources>
