@@ -14,12 +14,7 @@ jobs:
 
     steps:
 
-    - name: Touch local properties
-      run: touch local.properties
-
-    - name: Add Api Key
-      run: echo "API_KEY=\"\"" >> local.properties
-      
+   
    
     
     - uses: actions/checkout@v2
@@ -28,7 +23,14 @@ jobs:
       with:
         java-version: 11
         
+    -  name: Touch local properties
+       run: touch local.properties
+
+    - name: Add Api Key
+      run: echo "API_KEY=\"\"" >> local.properties
+      
     - name: Make gradlew executable
       run: chmod +x ./gradlew
+      
     - name: Build with Gradle
       run: ./gradlew build
