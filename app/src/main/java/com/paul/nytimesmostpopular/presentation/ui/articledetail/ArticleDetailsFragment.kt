@@ -1,4 +1,4 @@
-package com.paul.nytimesmostpopular.presentation.ui
+package com.paul.nytimesmostpopular.presentation.ui.articledetail
 
 import android.net.Uri
 import android.os.Build
@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso
 @Suppress("DEPRECATION")
 class ArticleDetailsFragment : Fragment() {
 
-    private val args: ArticleDetailsFragmentArgs by navArgs<ArticleDetailsFragmentArgs>()
+    private val args:  ArticleDetailsFragmentArgs by navArgs()
     private lateinit var fragmentArticleDetailsBinding: FragmentArticleDetailsBinding
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(

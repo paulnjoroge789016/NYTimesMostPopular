@@ -13,6 +13,8 @@ import com.paul.nytimesmostpopular.R
 import com.paul.nytimesmostpopular.domain.data.entities.Article
 import com.paul.nytimesmostpopular.launchFragmentInHiltContainer
 import com.paul.nytimesmostpopular.presentation.adapters.ArticlePagedListAdapter
+import com.paul.nytimesmostpopular.presentation.ui.articledetail.ArticleDetailsFragment
+import com.paul.nytimesmostpopular.presentation.ui.articleslist.PopularArticlesListFragment
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi

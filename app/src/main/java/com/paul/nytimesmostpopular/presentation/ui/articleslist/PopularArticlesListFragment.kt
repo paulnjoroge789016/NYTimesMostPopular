@@ -1,4 +1,4 @@
-package com.paul.nytimesmostpopular.presentation.ui
+package com.paul.nytimesmostpopular.presentation.ui.articleslist
 
 import android.os.Bundle
 import android.view.*
@@ -102,7 +102,7 @@ class PopularArticlesListFragment : Fragment(), ArticleViewOnClickListener {
         bundle.putParcelable("article", article)
 
         val action =
-           PopularArticlesListFragmentDirections.actionNewsListFragmentToArticleDetailsFragment(
+            PopularArticlesListFragmentDirections.actionNewsListFragmentToArticleDetailsFragment(
                 article
             )
 
