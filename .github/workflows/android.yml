@@ -12,8 +12,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-   
-
     steps:
 
     - name: Touch local properties
@@ -22,13 +20,15 @@ jobs:
     - name: Add Api Key
       run: echo "API_KEY=\"\"" >> local.properties
       
-    - name: Make gradlew executable
-      run: chmod +x ./gradlew
+   
     
     - uses: actions/checkout@v2
     - name: set up JDK 1.8
       uses: actions/setup-java@v1
       with:
         java-version: 11
+        
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
     - name: Build with Gradle
       run: ./gradlew build
