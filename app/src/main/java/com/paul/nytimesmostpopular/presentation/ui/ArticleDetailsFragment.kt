@@ -3,16 +3,18 @@ package com.paul.nytimesmostpopular.presentation.ui
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.paul.nytimesmostpopular.R
 import com.paul.nytimesmostpopular.databinding.FragmentArticleDetailsBinding
+import com.paul.nytimesmostpopular.presentation.MainActivity
 import com.squareup.picasso.Picasso
+
 
 @Suppress("DEPRECATION")
 class ArticleDetailsFragment : Fragment() {
@@ -24,6 +26,7 @@ class ArticleDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
 
         val article = args.article
         fragmentArticleDetailsBinding =
@@ -57,7 +60,7 @@ class ArticleDetailsFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun openCustomTabForReadMore(uri: Uri) {
         val customTabIntent: CustomTabsIntent = CustomTabsIntent.Builder()
-            .setToolbarColor(requireActivity().getColor(R.color.blue))
+            .setToolbarColor(requireActivity().getColor(R.color.teal_700))
             .build()
 
         val packageName = "com.android.chrome"
