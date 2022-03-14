@@ -35,8 +35,10 @@ API_KEY="*******************"
 - CI/CD
     - Github Actions
 
+### Screenshots
 
-##ScreenShots
+I added some screenshots in the `screenshots` folder, in the root directory of the project. Added some GIFs to also show end to end test on the app
+
 
 <table>
 <thead>
