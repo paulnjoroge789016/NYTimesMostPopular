@@ -59,7 +59,7 @@ class ArticleDetailsFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun openCustomTabForReadMore(uri: Uri) {
         val customTabIntent: CustomTabsIntent = CustomTabsIntent.Builder()
-            .setToolbarColor(requireActivity().getColor(R.color.teal_700))
+            .setToolbarColor(requireActivity().getColor(R.color.purple_700))
             .build()
 
         val packageName = "com.android.chrome"
