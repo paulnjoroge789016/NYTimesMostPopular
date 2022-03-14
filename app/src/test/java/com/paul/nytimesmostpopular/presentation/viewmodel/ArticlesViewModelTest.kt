@@ -2,15 +2,11 @@ package com.paul.nytimesmostpopular.presentation.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
-import com.paul.nytimesmostpopular.ArticlesTestData
-import com.paul.nytimesmostpopular.FakeArticlesRepository
-import com.paul.nytimesmostpopular.TestCoroutineRule
-import com.paul.nytimesmostpopular.data.network.repository.ArticlesRepository
+import com.paul.nytimesmostpopular.resources.ArticlesTestData
+import com.paul.nytimesmostpopular.utils.TestCoroutineRule
 import com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource
 import com.paul.nytimesmostpopular.domain.usecases.GetAllArticlesUseCase
 import com.paul.nytimesmostpopular.getOrAwaitValueTest
-import io.mockk.coEvery
-import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runBlockingTest

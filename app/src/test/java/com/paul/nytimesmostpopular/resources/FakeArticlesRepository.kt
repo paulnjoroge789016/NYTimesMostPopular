@@ -1,4 +1,4 @@
-package com.paul.nytimesmostpopular
+package com.paul.nytimesmostpopular.resources
 
 import com.paul.nytimesmostpopular.domain.data.entities.Article
 import com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource

@@ -1,4 +1,4 @@
-package com.paul.nytimesmostpopular
+package com.paul.nytimesmostpopular.utils
 
 
 import kotlinx.coroutines.CoroutineDispatcher

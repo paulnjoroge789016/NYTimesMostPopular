@@ -3,11 +3,10 @@ package com.paul.nytimesmostpopular.data.network.repository
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
-import com.paul.nytimesmostpopular.FakeArticlesRepository
+import com.paul.nytimesmostpopular.resources.FakeArticlesRepository
 import com.paul.nytimesmostpopular.domain.data.entities.Article
 import com.paul.nytimesmostpopular.domain.data.entities.NetworkBoundResource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
