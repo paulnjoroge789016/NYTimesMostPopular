@@ -34,3 +34,28 @@ API_KEY="*******************"
 
 - CI/CD
     - Github Actions
+
+
+##ScreenShots
+
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Home screen</th>
+<th>Article Details Screen</th>
+<th>Read More</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Light</td>
+<td><a target="_blank" rel="noopener noreferrer" href="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/home.png"><img src="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/home.png" style="max-width: 100%;" width="250"></a></td>
+<td><a target="_blank" rel="noopener noreferrer" href="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/articledetails.png"><img src="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/articledetails.png" style="max-width: 100%;" width="250"></a></td>
+<td><a target="_blank" rel="noopener noreferrer" href="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/readmore.png"><img src="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/readmore.png" style="max-width: 100%;" width="250"></a></td>
+</tr>
+<tr>
+
+</tr>
+</tbody>
+</table>
