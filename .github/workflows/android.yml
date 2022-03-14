@@ -15,13 +15,15 @@ jobs:
    
 
     steps:
-    - name: Check Mode 
-      run: chmod +x gradlew
+
     - name: Touch local properties
       run: touch local.properties
 
     - name: Add Api Key
       run: echo "API_KEY=\"\"" >> local.properties
+      
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
     
     - uses: actions/checkout@v2
     - name: set up JDK 1.8
