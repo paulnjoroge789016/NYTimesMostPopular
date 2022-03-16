@@ -1,7 +1,7 @@
 # NYTimesMostPopular
 
  An android app built using Kotlin that consumes [Ney York Times API](https://developer.nytimes.com/get-started/3) to display current popular articles.
-It has been built following Clean Architecture Principle, Repository Pattern, MVVM Architecture in the presentation layer as well as jetpack components.
+It has been built following Architecture Principle, Repository Pattern, MVVM Architecture in the presentation layer as well as jetpack components.
 ### Prerequisites
 
 #### Ney York Times API Key.
@@ -71,7 +71,7 @@ A well planned architecture is extremely important for an app to scale and all a
 
 Clean architecture was proposed by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) in 2012 in the [Clean Code Blog](http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) and it follow the SOLID principle.
 
-<p align="center"><img src="assets/clean_arch.png" alt="Clean Architecture Diagram"></p>
+<p align="center"><img src="screenshots/clean_arch.png" alt="Clean Architecture Diagram"></p>
 
 The circles represent different layers of your app. Note that:
 
